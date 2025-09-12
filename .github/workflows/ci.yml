@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build image
         run: | 
-                docker build -t ${{secrets.REGISTRY_USER}}/portfolio:{{github.run_number}} .
+                docker build -t ${{secrets.REGISTRY_USER}}/portfolio:${{github.run_number}} .
                 docker build -t ${{secrets.REGISTRY_USER}}/portfolio .
       - name:   Push image
         run: |
