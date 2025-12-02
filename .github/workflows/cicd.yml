@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 env:
-   python_version: 3.11 
+   python_version: "3.11" 
 jobs:
   build:
     runs-on: ubuntu-latest
