@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-python@v4
         with:
             python-version: ${{env.python_version}}  # or $python_version
-            $python_version
+           
       - name: Configure AWS credentials using OIDC
         uses: aws-actions/configure-aws-credentials@v2
         with:
