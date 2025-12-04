@@ -64,7 +64,7 @@ jobs:
           
           
  ecs:deploy:
-  needs: build
+
   runs-on: ubuntu-latest
   steps:
     - name: Render ECS task definition with new image
