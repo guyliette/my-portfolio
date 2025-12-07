@@ -1,18 +1,19 @@
 {
-  "cpu": 0,
+  "cpu": 1024,
   "environment": [],
   "essential": true,
-  "image": "nginx",
+  "image": "381492114267.dkr.ecr.us-east-1.amazonaws.com/cicd@sha256:c012372872b6e07c56cb3a1c5bd685e08b37444e923b9e4f8dc55cfade0fe32f",
   "logConfiguration": {
     "logDriver": "awslogs",
     "options": {
-      "awslogs-group": "/ecs/nginx-fargate",
+      "awslogs-group": "/aws/ecs/default/cicd-f978-13e5",
       "awslogs-region": "us-east-1",
       "awslogs-stream-prefix": "ecs"
     }
   },
+  "memoryReservation": 2048,
   "mountPoints": [],
-  "name": "nginx",
+  "name": "Main",
   "portMappings": [
     {
       "containerPort": 80,
@@ -20,6 +21,6 @@
       "protocol": "tcp"
     }
   ],
-  "systemControls": [],
+  "secrets": [],
   "volumesFrom": []
 }
