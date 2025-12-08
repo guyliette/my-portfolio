@@ -1,26 +1,76 @@
 {
-  "cpu": 1024,
-  "environment": [],
-  "essential": true,
-  "image": "381492114267.dkr.ecr.us-east-1.amazonaws.com/cicd@sha256:c012372872b6e07c56cb3a1c5bd685e08b37444e923b9e4f8dc55cfade0fe32f",
-  "logConfiguration": {
-    "logDriver": "awslogs",
-    "options": {
-      "awslogs-group": "/aws/ecs/default/cicd-f978-13e5",
-      "awslogs-region": "us-east-1",
-      "awslogs-stream-prefix": "ecs"
-    }
-  },
-  "memoryReservation": 2048,
-  "mountPoints": [],
-  "name": "Main",
-  "portMappings": [
+  "compatibilities": [
+    "EC2",
+    "FARGATE",
+    "MANAGED_INSTANCES"
+  ],
+  "containerDefinitions": [
     {
-      "containerPort": 80,
-      "hostPort": 80,
-      "protocol": "tcp"
+      "cpu": 0,
+      "environment": [],
+      "essential": true,
+      "image": "nginx",
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/nginx-fargate",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "mountPoints": [],
+      "name": "nginx",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "systemControls": [],
+      "volumesFrom": []
     }
   ],
-  "secrets": [],
-  "volumesFrom": []
+  "cpu": "256",
+  "executionRoleArn": "arn:aws:iam::381492114267:role/nginx-fargate-ecs-task-execution-role",
+  "family": "nginx-fargate-task",
+  "memory": "512",
+  "networkMode": "awsvpc",
+  "placementConstraints": [],
+  "registeredAt": "2025-12-07T21:44:10.266Z",
+  "registeredBy": "arn:aws:iam::381492114267:user/gigi",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.task-iam-role"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "ecs.capability.task-eni"
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "revision": 6,
+  "status": "ACTIVE",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:381492114267:task-definition/nginx-fargate-task:6",
+  "taskRoleArn": "arn:aws:iam::381492114267:role/nginx-fargate-ecs-task-role",
+  "volumes": [],
+  "tags": [
+    {
+      "key": "Name",
+      "value": "nginx-fargate-task-definition"
+    }
+  ]
 }
