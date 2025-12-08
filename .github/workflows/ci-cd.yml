@@ -82,6 +82,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.taskdef.outputs.task-definition }}
-          cluster: nginx-farget-cluster
+          cluster: nginx-fargate-cluster
           service: nginx-farget-service
           wait-for-service-stability: true
