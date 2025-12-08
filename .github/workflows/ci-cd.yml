@@ -83,5 +83,5 @@ jobs:
         with:
           task-definition: ${{ steps.taskdef.outputs.task-definition }}
           cluster: nginx-fargate-cluster
-          service: nginx-farget-service
+          service: nginx-fargate-service
           wait-for-service-stability: true
